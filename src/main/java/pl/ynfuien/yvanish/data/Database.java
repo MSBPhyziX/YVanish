@@ -68,7 +68,7 @@ public abstract class Database {
         String query = String.format("UPDATE `%s` SET silent_chests=?, silent_sculk=?, silent_messages=?, no_pickup=?, no_mobs=?, no_step=?, action_bar=?, boss_bar=?, fake_join=?, on_join=?, vanished=? WHERE uuid=?", usersTableName);
 
         if (!userExists(uuid)) {
-            query = String.format("INSERT INTO `%s`(silent_chests, silent_sculk, silent_messages, no_pickup, no_mobs, no_step, action_bar, boss_bar, fake_join, on_join, vanished, uuid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", usersTableName);
+            query = String.format("INSERT INTO `%s`(silent_chests, silent_sculk, silent_messages, no_pickup, no_mobs, no_step, action_bar, boss_bar, fake_join, on_join, vanished, uuid) VALUES(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)", usersTableName);
         }
 
         try (Connection conn = dbSource.getConnection(); PreparedStatement stmt = conn.prepareStatement(query)) {
